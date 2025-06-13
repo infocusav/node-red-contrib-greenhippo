@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-greenhippo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A node for API calls from Green Hippo Media Servers",
   "main": "index.js",
   "scripts": {
@@ -13,11 +13,11 @@
       }
   },
     "engines": {
-    "node": ">=18.0.0"
+      "node": ">=18.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infocusav/node-red-contrib-greenhippo/issues"
+    "url": "git+https://github.com/infocusav/node-red-contrib-greenhippo.git"
   }, 
   "keywords": [
     "greenhippo","node-red"
