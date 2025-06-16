@@ -11,7 +11,7 @@ module.exports = function(RED) {
 
     node.on('input', function(msg, send, done) {
       const ip = config.ipAddress || msg.ipAddress;
-      const port = config.port || msg.port || 80;
+      const port = config.port || msg.port || 40512;
       const path = config.apiPath || msg.apiPath;
 
       if (!ip) {
@@ -32,7 +32,7 @@ module.exports = function(RED) {
         method: 'GET',
       };
       //uncomment below line for troubleshooting
-      // node.log(`Requesting http://${ip}:${port}${path}`); 
+       node.log(`Requesting http://${ip}:${port}${path}`); 
 
       const req = http.request(options, (res) => {
         let data = '';
@@ -60,5 +60,5 @@ module.exports = function(RED) {
       req.end();
     });
   }
-  RED.nodes.registerType("greenhippo", GreenHippoNode);
+  RED.nodes.registerType("greenhippoAPI", GreenHippoNode);
 };
