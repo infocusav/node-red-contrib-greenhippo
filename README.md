@@ -11,4 +11,4 @@ https://api.tvone.com/products/green-hippo/hippotizer-media-servers/rest_api.htm
 
 Example Flow
 
-![Hippo Node](https://github.com/infocusav/node-red-contrib-greenhippo/tree/main/examples/hipponode.png)
+![Hippo Node](https://raw.githubusercontent.com/infocusav/node-red-contrib-greenhippo/main/examples/hipponode.png)
