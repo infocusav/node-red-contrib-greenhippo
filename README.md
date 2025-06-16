@@ -10,4 +10,4 @@ https://api.tvone.com/products/green-hippo/hippotizer-media-servers/rest_api.htm
 
 
 Example Flow
-![Image](https://github.com/user-attachments/assets/a0ceb308-e244-4273-9c12-9f8c92aa9680)
+![hipponode](./examples/hipponode.png)
