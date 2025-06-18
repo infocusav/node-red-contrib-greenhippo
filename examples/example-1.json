@@ -1,222 +1,16 @@
 [
     {
-        "id": "188370c4245661cc",
+        "id": "e84e7c3aca9b3739",
         "type": "tab",
-        "label": "greenhippo",
+        "label": "Flow 1",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "inject_text",
-        "type": "inject",
-        "z": "188370c4245661cc",
-        "name": "Enter Text",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "osc stuff",
-        "payloadType": "str",
-        "x": 680,
-        "y": 1100,
-        "wires": [
-            [
-                "format_osc"
-            ]
-        ]
-    },
-    {
-        "id": "format_osc",
-        "type": "function",
-        "z": "188370c4245661cc",
-        "name": "Format OSC Message",
-        "func": "msg.topic = \"/d3/layer/Text/text\"; // Set OSC address\nmsg.payload = [msg.payload]; // OSC expects an array of arguments\nmsg.ip = \"127.0.0.1\"; // Set the OSC receiver IP\nmsg.port = 8001; // Set the OSC port\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1000,
-        "y": 1100,
-        "wires": [
-            [
-                "osc_output",
-                "61263f2daac8c303"
-            ]
-        ]
-    },
-    {
-        "id": "osc_output",
-        "type": "osc",
-        "z": "188370c4245661cc",
-        "name": "Send OSC",
-        "path": "",
-        "metadata": false,
-        "x": 1210,
-        "y": 1080,
-        "wires": [
-            [
-                "07a0f5112c859c33",
-                "321673d1.67b25c"
-            ]
-        ]
-    },
-    {
-        "id": "61263f2daac8c303",
+        "id": "4f60436e8f9eb3f7",
         "type": "debug",
-        "z": "188370c4245661cc",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1400,
-        "y": 1140,
-        "wires": []
-    },
-    {
-        "id": "07a0f5112c859c33",
-        "type": "debug",
-        "z": "188370c4245661cc",
-        "name": "debug 2",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1390,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "321673d1.67b25c",
-        "type": "udp out",
-        "z": "188370c4245661cc",
-        "name": "",
-        "addr": "localhost",
-        "iface": "",
-        "port": "8001",
-        "ipv": "udp4",
-        "outport": "",
-        "base64": false,
-        "multicast": "false",
-        "x": 1770,
-        "y": 1100,
-        "wires": []
-    },
-    {
-        "id": "fbeaa7914924199a",
-        "type": "ui_text_input",
-        "z": "188370c4245661cc",
-        "name": "Enter Text",
-        "label": "OSC Message",
-        "tooltip": "",
-        "group": "5ca1adf25c599504",
-        "order": 1,
-        "width": 6,
-        "height": 1,
-        "passthru": false,
-        "mode": "text",
-        "delay": "0",
-        "topic": "osc_message",
-        "sendOnBlur": true,
-        "className": "",
-        "topicType": "str",
-        "x": 700,
-        "y": 680,
-        "wires": [
-            [
-                "ae65094882c9b673"
-            ]
-        ]
-    },
-    {
-        "id": "ae65094882c9b673",
-        "type": "change",
-        "z": "188370c4245661cc",
-        "name": "Store Text in Flow Variable",
-        "rules": [
-            {
-                "t": "set",
-                "p": "oscMessage",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "x": 950,
-        "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "24b68151e6a98afc",
-        "type": "ui_button",
-        "z": "188370c4245661cc",
-        "name": "Send OSC",
-        "group": "5ca1adf25c599504",
-        "order": 2,
-        "width": 6,
-        "height": 1,
-        "passthru": false,
-        "label": "Send OSC",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "send",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "topicType": "str",
-        "x": 700,
-        "y": 780,
-        "wires": [
-            [
-                "9030f75a2b90da67"
-            ]
-        ]
-    },
-    {
-        "id": "9030f75a2b90da67",
-        "type": "change",
-        "z": "188370c4245661cc",
-        "name": "Retrieve Stored Text",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "oscMessage",
-                "tot": "flow"
-            }
-        ],
-        "x": 950,
-        "y": 780,
-        "wires": [
-            [
-                "format_osc"
-            ]
-        ]
-    },
-    {
-        "id": "478b142ac191c0c4",
-        "type": "debug",
-        "z": "188370c4245661cc",
+        "z": "e84e7c3aca9b3739",
         "name": "API request return",
         "active": true,
         "tosidebar": true,
@@ -226,14 +20,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2110,
-        "y": 360,
+        "x": 1130,
+        "y": 300,
         "wires": []
     },
     {
-        "id": "6f619e5edeb9c1d1",
+        "id": "d2642b5febc6cfc3",
         "type": "inject",
-        "z": "188370c4245661cc",
+        "z": "e84e7c3aca9b3739",
         "name": "",
         "props": [
             {
@@ -251,55 +45,18 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1500,
-        "y": 360,
+        "x": 560,
+        "y": 300,
         "wires": [
             [
-                "fbce72439d0f2526"
+                "27854cac25ad7835"
             ]
         ]
     },
     {
-        "id": "fbce72439d0f2526",
-        "type": "greenhippoAPI",
-        "z": "188370c4245661cc",
-        "name": "greenhippoAPI Call",
-        "ipAddress": "192.168.0.22",
-        "port": "40512",
-        "apiPath": "/media/GetDiskSpaceTotal",
-        "x": 1790,
-        "y": 360,
-        "wires": [
-            [
-                "478b142ac191c0c4"
-            ]
-        ]
-    },
-    {
-        "id": "c284a90e37384001",
-        "type": "greenhippoInfo",
-        "z": "188370c4245661cc",
-        "name": "",
-        "ipAddress": "192.168.0.22",
-        "port": "40512",
-        "x": 1780,
-        "y": 540,
-        "wires": [
-            [
-                "9d49cee00a9081ed"
-            ],
-            [
-                "aa90a03b4ab41923"
-            ],
-            [
-                "ec7b9b8e7baf180e"
-            ]
-        ]
-    },
-    {
-        "id": "fccfd8420a0caee6",
+        "id": "70357471bccc49b1",
         "type": "inject",
-        "z": "188370c4245661cc",
+        "z": "e84e7c3aca9b3739",
         "name": "",
         "props": [
             {
@@ -317,18 +74,18 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 1500,
-        "y": 540,
+        "x": 560,
+        "y": 460,
         "wires": [
             [
-                "c284a90e37384001"
+                "d410b529a644b481"
             ]
         ]
     },
     {
-        "id": "9d49cee00a9081ed",
+        "id": "076f6cfca253be33",
         "type": "debug",
-        "z": "188370c4245661cc",
+        "z": "e84e7c3aca9b3739",
         "name": "Full server stauts JSON reponse",
         "active": true,
         "tosidebar": true,
@@ -338,14 +95,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2150,
-        "y": 480,
+        "x": 1170,
+        "y": 420,
         "wires": []
     },
     {
-        "id": "aa90a03b4ab41923",
+        "id": "f12defd689350d14",
         "type": "debug",
-        "z": "188370c4245661cc",
+        "z": "e84e7c3aca9b3739",
         "name": "Engine Status Running TRUE/FALSE",
         "active": true,
         "tosidebar": true,
@@ -355,14 +112,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2170,
-        "y": 540,
+        "x": 1190,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "ec7b9b8e7baf180e",
+        "id": "942fa5ed408a6d6d",
         "type": "debug",
-        "z": "188370c4245661cc",
+        "z": "e84e7c3aca9b3739",
         "name": "Media Manager Status",
         "active": true,
         "tosidebar": true,
@@ -372,25 +129,45 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2120,
-        "y": 600,
+        "x": 1140,
+        "y": 540,
         "wires": []
     },
     {
-        "id": "5ca1adf25c599504",
-        "type": "ui_group",
-        "name": "OSC Control",
-        "tab": "9fc04b321b9bad45",
-        "order": 1,
-        "disp": true,
-        "width": "6",
-        "collapse": false
+        "id": "27854cac25ad7835",
+        "type": "GH-API",
+        "z": "e84e7c3aca9b3739",
+        "name": "",
+        "ipAddress": "192.168.0.22",
+        "port": 40512,
+        "apiPath": "/info",
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "4f60436e8f9eb3f7"
+            ]
+        ]
     },
     {
-        "id": "9fc04b321b9bad45",
-        "type": "ui_tab",
-        "name": "OSC Sender",
-        "icon": "dashboard",
-        "order": 1
+        "id": "d410b529a644b481",
+        "type": "GH-Info",
+        "z": "e84e7c3aca9b3739",
+        "name": "",
+        "ipAddress": "192.168.0.22",
+        "port": 40512,
+        "x": 820,
+        "y": 460,
+        "wires": [
+            [
+                "076f6cfca253be33"
+            ],
+            [
+                "f12defd689350d14"
+            ],
+            [
+                "942fa5ed408a6d6d"
+            ]
+        ]
     }
 ]
