@@ -1,4 +1,4 @@
-<script type="text/html" data-template-name="greenhippoAPI">
+<script type="text/html" data-template-name="GH-API">
   <div class="form-row">
     <label for="node-input-ipAddress"><i class="fa fa-globe"></i> IP Address</label>
     <input type="text" id="node-input-ipAddress" placeholder="192.168.1.100">
@@ -18,24 +18,24 @@
 </script>
 
 <script type="text/javascript">
-  RED.nodes.registerType('greenhippoAPI', {
+  RED.nodes.registerType('GH-API', {
     category: 'GreenHippo',
     color: '#3c8e3c',
     defaults: {
       name: {value:""},
       ipAddress: {value:"", required:true},
-       port: {value: 80, required:true, validate: RED.validators.number()},
+       port: {value: 40512, required:true, validate: RED.validators.number()},
       apiPath: {value:"", required:true}
     },
     inputs: 1,
     outputs: 1,
     icon: "file.png",
     label: function() {
-      return this.name || "greenhippoAPI";
+      return this.name || "GH-API";
     }
   });
 </script>
 
-<script type="text/html" data-help-name="greenhippoAPI">
+<script type="text/html" data-help-name="GH-API">
   <p>A simple node to send HTTP GET requests to a Green Hippo API endpoint.</p>
 </script>

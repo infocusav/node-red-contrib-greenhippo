@@ -72,5 +72,5 @@ module.exports = function(RED) {
     });
   }
 
-  RED.nodes.registerType("greenhippoInfo", GreenHippoInfoNode);
+  RED.nodes.registerType("GH-Info", GreenHippoInfoNode);
 };

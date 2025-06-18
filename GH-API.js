@@ -60,5 +60,5 @@ module.exports = function(RED) {
       req.end();
     });
   }
-  RED.nodes.registerType("greenhippoAPI", GreenHippoNode);
+  RED.nodes.registerType("GH-API", GreenHippoNode);
 };
