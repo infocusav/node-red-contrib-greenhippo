@@ -58,8 +58,12 @@ module.exports = function(RED) {
       });
 
       req.on('error', (err) => {
-        node.error("HTTP request failed: " + err.message, msg);
-        done(err);
+      node.error("HTTP request failed: " + err.message, msg);
+
+       // Output 2 = false on connection error (e.g., ECONNREFUSED) When hippo is not running.
+      const msg2 = { payload: false };
+      send([null, msg2, null]);
+      done(err);
       });
 
       req.on('timeout', () => {
